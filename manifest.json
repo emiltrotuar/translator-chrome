@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "translator",
+  "version": "1.0",
+
+  "description": "Translates a selected text using Lingua Leo API",
+
+  "icons": {
+    "48": "notepad.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["translator.js"]
+    }
+  ]
+
+}
