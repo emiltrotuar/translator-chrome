@@ -1,0 +1,20 @@
+#notes_float_panel {
+	position: absolute;
+	opacity: 0.4;
+}
+
+#notes_float_panel:hover {
+	opacity: 1.0;
+	cursor:pointer;
+}
+
+#notes_float_panel_translation {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #ccc;
+	padding: 5px;
+	position: absolute;
+	z-index: 9999;
+}
+

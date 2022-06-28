@@ -1,7 +1,7 @@
 const LEO_API_URL = 'https://api.lingualeo.com/getTranslates'
 
 const link = document.createElement('link');
-link.href =  chrome.runtime.getURL('fp.css');
+link.href =  browser.runtime.getURL('fp.css');
 link.rel = 'stylesheet';
 document.documentElement.insertBefore(link, document.documentElement.firstChild);
 
@@ -61,9 +61,9 @@ const popup = {
     const fp = document.createElement('img');
 
     fp.id = 'notes_float_panel';
-    fp.src = chrome.runtime.getURL("edit.png");
+    fp.src = browser.runtime.getURL("edit.png");
     fp.style.cssText = 'left:'+x+'px;\
-                        top:' +y+'px;'
+                        top:' +y+'px;';
     fp.addEventListener("mousedown", popup.sendData);
 
     document.body.appendChild(fp);
@@ -103,17 +103,14 @@ const popup = {
       }
     }
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", LEO_API_URL, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    const request = new Request(LEO_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
 
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4) {
-        const resp = JSON.parse(xhr.responseText);
-        popup.showTranslation(resp.translation)
-      }
-    }
-    sendData = JSON.stringify(data)
-    xhr.send(sendData);
+    fetch(request).
+      then(response => response.json()).
+      then(resp => popup.showTranslation(resp.translation));
   }
 }
