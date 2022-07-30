@@ -1,13 +1,3 @@
-#notes_float_panel {
-	position: absolute;
-	opacity: 0.4;
-}
-
-#notes_float_panel:hover {
-	opacity: 1.0;
-	cursor:pointer;
-}
-
 #notes_float_panel_translation {
 	background-color: #fff;
 	border: 1px solid #ccc;

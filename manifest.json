@@ -13,8 +13,9 @@
   ],
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
-      "js": ["translator.js"]
+      "matches": ["<all_urls>"],
+      "js": ["translator.js"],
+      "run_at": "document_end"
     }
   ]
 
