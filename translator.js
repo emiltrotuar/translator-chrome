@@ -1,9 +1,9 @@
 const LEO_API_URL = 'https://api.lingualeo.com/getTranslates'
 
 const link = document.createElement('link');
-link.href =  browser.runtime.getURL('fp.css');
+link.href =  chrome.runtime.getURL('fp.css');
 link.rel = 'stylesheet';
-document.documentElement.insertBefore(link, document.documentElement.firstChild);
+document.head.appendChild(link);
 
 let cx;
 let cy;
