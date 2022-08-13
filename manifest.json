@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "translator",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Translates a selected text using Lingua Leo API",
   "icons": {
     "64": "dictionary.png"
