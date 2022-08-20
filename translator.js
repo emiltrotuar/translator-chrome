@@ -22,11 +22,12 @@ document.onclick = function(e) {
 
 const showTranslation = function(data){
   const div = document.createElement('div');
+  const text = document.createTextNode(data);
+  const cssText = `left: ${cx}px; top: ${cy}px;`
 
   div.id = 'notes_float_panel_translation';
-  div.innerHTML = data;
-  div.style.cssText = 'left:'+cx+'px;\
-                         top:' +cy+'px;'
+  div.style.cssText = cssText;
+  div.appendChild(text);
 
   document.body.appendChild(div);
 };
